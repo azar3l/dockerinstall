@@ -5,16 +5,16 @@ sudo apt-get update
 sudo apt-get install apt-transport-https ca-certificates -y
 sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 #need to add conditions here so it can work on any ubuntu version
-release=$(lsb_release -r -s)
+rel=$(lsb_release -r -s)
 #checking ubuntu version and adding repo list only works with version >=14.04 & 16.04
 #need to add test condition here
-#if ($rel >= 14.04 && $rel <= 16.04), ; the
-
+#if [ $rel >= 14.04 && $rel <= 16.04 ]
+#then
 case $rel in
 	16.04 )
 		echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | sudo tee /etc/apt/sources.list.d/docker.list
 		;;
-	15.10 )
+	15.10 )
 		echo "deb https://apt.dockerproject.org/repo ubuntu-wily main" | sudo tee /etc/apt/sources.list.d/docker.list
 		;;
 	14.04 )
@@ -22,7 +22,7 @@ case $rel in
 		;;
 esac
 #else 
-	echo " docker works with ubuntu version between 14.04 and 16.04"
+	#echo " docker works better with ubuntu version between 14.04 and 16.04"
 #fi
 sudo apt-get update
 sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual -y
