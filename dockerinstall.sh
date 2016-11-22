@@ -14,7 +14,7 @@ case $rel in
 	16.04 )
 		echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | sudo tee /etc/apt/sources.list.d/docker.list
 		;;
-	15.10 )
+	15.10 )
 		echo "deb https://apt.dockerproject.org/repo ubuntu-wily main" | sudo tee /etc/apt/sources.list.d/docker.list
 		;;
 	14.04 )
@@ -38,5 +38,6 @@ read -p "" -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    sudo reboot && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
+	exec /sbin/reboot > /dev/null 
+    #sudo reboot && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
 fi
