@@ -7,7 +7,7 @@ sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58
 #need to add conditions here so it can work on any ubuntu version
 rel=$(lsb_release -r -s)
 #checking ubuntu version and adding repo list only works with version >=14.04 & 16.04
-#need to add test condition here
+#need to add this  test condition here
 #if [ $rel >= 14.04 && $rel <= 16.04 ]
 #then
 case $rel in
