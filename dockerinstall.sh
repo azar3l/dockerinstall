@@ -29,6 +29,10 @@ sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual -y
 sudo apt-get install docker-engine -y
 sudo service docker start
 sudo docker run hello-world
+echo "installing docker-cmpose"
+sudo curl -L "https://github.com/docker/compose/releases/download/1.8.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
 echo "adding docker group to your current user"
 sudo usermod -aG docker $USER
 echo "do you need to reboot"
@@ -38,6 +42,6 @@ read -p "" -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-	exec /sbin/reboot > /dev/null 
+	exec  sudo /sbin/reboot > /dev/null 
     #sudo reboot && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
 fi
