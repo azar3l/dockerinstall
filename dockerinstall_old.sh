@@ -1,5 +1,6 @@
 #!/bin/bash
 #author "ankit"
+#this is an old script don't use it"
 echo "this will install docker in ubuntu $(lsb_release -r -s)"
 sudo apt-get update
 sudo apt-get install apt-transport-https ca-certificates -y
